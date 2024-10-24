@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: sticky;
+}
+.header span{
+    display: flex;
+    
+}
