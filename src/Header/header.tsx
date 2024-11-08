@@ -4,7 +4,7 @@ import './header.css'
 function Header(){
 return(
 <div className='header'>
-   <span>NBA standings prediction</span> 
+   <h1>NBA standings prediction</h1> 
 </div>
 );
 }
