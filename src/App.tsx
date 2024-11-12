@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import Header from './Header/header'
 import Teams from './Teams/teams'
 import './App.css';
@@ -58,6 +57,13 @@ const[isEastConference,setEastConference] = useState(true);
 const toggleConference=()=>{
   setEastConference((prev)=>!prev);
 };
+const handleDragEnd = (updatedTeams: Team[])=>{
+  if(isEastConference){
+    setEastTeam(updatedTeams);
+  } else{
+    setWestTeams(updatedTeams)
+  }
+}
 
   return (
     <div>
@@ -70,6 +76,7 @@ const toggleConference=()=>{
       </button>
     <ConferenceTable
       teams={isEastConference? eastTeam: westTeam}
+      onDragEnd={handleDragEnd}
       title={isEastConference? 'East': 'West'}/>
     </div>
   </div>
