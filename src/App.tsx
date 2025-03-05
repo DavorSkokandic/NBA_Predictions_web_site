@@ -13,7 +13,7 @@ interface Team{
 
 function App() {
 
-const [eastTeam, setEastTeam] = useState<Team[]>([
+const initialEastTeams: Team[] = [
   {name: 'Boston Celtics', id: '1'},
   {name: 'Milwaukee Bucks', id: '2'},
   {name: 'Cleveland Cavaliers', id: '3'},
@@ -29,11 +29,9 @@ const [eastTeam, setEastTeam] = useState<Team[]>([
   {name: 'Charlotte Hornets', id: '13'},
   {name: 'Detroit Pistons', id: '14'},
   {name: 'Washington Wizards', id: '15'},
-  
+];
 
-]);
-
-const [westTeam,setWestTeams] = useState<Team[]>([
+const initialWestTeams: Team[] = [
   {name: 'Los Angeles Lakers', id: '1'},
   {name: 'Denver Nuggets', id: '2'},
   {name: 'Pheonix Suns', id: '3'},
@@ -50,40 +48,53 @@ const [westTeam,setWestTeams] = useState<Team[]>([
   {name: 'Los Angeles Clippers', id: '14'},
   {name: 'Utah Jazz', id: '15'},
 
-]);
+];
 
-const[isEastConference,setEastConference] = useState(true);
+const [eastTeam, setEastTeam] = useState<Team[]>(initialEastTeams);
+const [westTeam, setWestTeams] = useState<Team[]>(initialWestTeams);
+const [eastSlots, setEastSlots] = useState<(Team | null)[]>(Array(initialEastTeams.length).fill(null));
+const [westSlots, setWestSlots] = useState<(Team | null)[]>(Array(initialWestTeams.length).fill(null));
+const [isEastConference, setEastConference] = useState(true);
 
-const toggleConference=()=>{
-  setEastConference((prev)=>!prev);
+
+const toggleConference = () => {
+  setEastConference((prev) => !prev);
 };
-const handleDragEnd = (updatedTeams: Team[])=>{
-  if(isEastConference){
+const handleDragEnd = (updatedTeams: Team[], updatedSlots: (Team | null)[]) => {
+  if (isEastConference) {
     setEastTeam(updatedTeams);
-  } else{
-    setWestTeams(updatedTeams)
+    setEastSlots(updatedSlots);
+  } else {
+    setWestTeams(updatedTeams);
+    setWestSlots(updatedSlots);
   }
+};
+
+
+const resetTeams = () => {
+  setEastTeam([...initialEastTeams]);
+  setWestTeams([...initialWestTeams]);
+  setEastSlots(Array(initialEastTeams.length).fill(null));
+  setWestSlots(Array(initialWestTeams.length).fill(null));
 }
 
-  return (
+return (
+  <div>
+    <Header />
     <div>
-    <div>
-      <Header/>
-    </div>  
-    <div>
-    <button onClick={toggleConference}> 
-        {isEastConference ? 'East' : 'West'}
+      <button onClick={toggleConference}>
+        {isEastConference ? 'Switch to West' : 'Switch to East'}
       </button>
-    <ConferenceTable
-      teams={isEastConference? eastTeam: westTeam}
-      onDragEnd={handleDragEnd}
-      title={isEastConference? 'East': 'West'}/>
+      <button onClick={resetTeams}>Reset</button>
+      <ConferenceTable
+        teams={isEastConference ? eastTeam : westTeam}
+        onDragEnd={handleDragEnd}
+        title={isEastConference ? 'East Conference' : 'West Conference'}
+        slots={isEastConference ? eastSlots : westSlots}
+      />
     </div>
   </div>
-    
-    
-  
-  );
+);
 }
 
 export default App;
