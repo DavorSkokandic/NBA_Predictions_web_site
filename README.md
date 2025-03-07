@@ -1,3 +1,74 @@
+# 🏀 NBA Prediction App  
+
+An interactive web application that allows users to **predict NBA team rankings** by dragging and dropping teams into their projected positions for the **Eastern and Western Conferences**. Built with **React**, **TypeScript**, and **@dnd-kit/core** for a smooth drag-and-drop experience.
+
+## 🚀 Features  
+
+✅ **Drag-and-drop functionality** using `@dnd-kit/core`  
+✅ **Toggle between Eastern & Western Conferences** while keeping state  
+✅ **Persistent ranking adjustments** when switching conferences  
+✅ **Smooth animations & transitions** for better user experience  
+✅ **Reset button** to restore default rankings  
+✅ **Visually appealing UI** with team logos and slot numbering  
+
+## 🛠️ Tech Stack  
+
+- **React** + **TypeScript**  
+- **@dnd-kit/core** (Drag & Drop)  
+- **CSS3** (Styled components & animations)  
+
+## 📸 Screenshots  
+
+![NBA Prediction Screenshot](./screenshot.png)  
+
+## 🏗️ Installation & Setup  
+
+1️⃣ **Clone the repository**  
+```sh
+git clone https://github.com/your-username/nba-prediction-app.git
+cd nba-prediction-app
+
+2️⃣ Install dependencies
+
+sh
+Copy
+Edit
+npm install
+3️⃣ Start the development server
+
+sh
+Copy
+Edit
+npm run dev
+The app will run on http://localhost:5173/ (or as specified in your Vite setup).
+
+🔄 Usage
+Drag and drop teams from the list into ranking slots.
+Switch conferences using the toggle button.
+Reorder teams by dragging them within the slots.
+Move teams back to the list if needed.
+Click "Reset" to restore the default rankings.
+📌 Roadmap
+🚧 Improve mobile responsiveness
+🚧 Enhance animations & drag-and-drop smoothness
+🚧 Add a backend to save user predictions
+
+🤝 Contributing
+Feel free to fork the repo and submit a pull request!
+
+Fork the project
+Create your feature branch (git checkout -b feature-name)
+Commit your changes (git commit -m "Add new feature")
+Push to the branch (git push origin feature-name)
+Open a Pull Request
+📄 License
+This project is open-source and available under the MIT License.
+
+Enjoy predicting the NBA season rankings! 🏀🔥
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
