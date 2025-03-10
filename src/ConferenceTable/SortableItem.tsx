@@ -1,8 +1,7 @@
-// SortableItem.tsx
 import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import "./conferencetable.css"; // Import CSS here
+import "./conferencetable.css"; 
 
 interface SortableItemProps {
   teamName: string;
