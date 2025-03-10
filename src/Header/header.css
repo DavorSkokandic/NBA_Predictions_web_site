@@ -8,3 +8,8 @@
     display: flex;
     
 }
+.logo{
+    display: flex;
+    height: 7vh;
+    width: 8vh;
+}

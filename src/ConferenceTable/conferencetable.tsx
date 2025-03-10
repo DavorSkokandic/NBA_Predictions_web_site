@@ -127,14 +127,14 @@ const DroppableTeams: React.FC<{ teams: Team[] }> = ({ teams }) => {
 const DroppableSlots: React.FC<{ slots: (Team | null)[] }> = ({ slots }) => {
   return (
     <div className="slots-container">
-      <h3>Slots</h3>
+      <h3>Standings</h3>
       <SortableContext
         items={slots.map((_, index) => `slot-${index}`)}
         strategy={verticalListSortingStrategy}
       >
         <ol className="slots-list">
           {slots.map((slot, index) => (
-             <li key={index} className="slot">
+             <li key={index} className="slot-inside">
             <span className="slot-number">{index + 1}.</span>
             <DroppableSlot key={index} index={index} slot={slot} />
             </li>
